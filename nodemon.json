@@ -1,0 +1,21 @@
+{
+  "env": {
+    "PORT": 5000,
+    "JWT_SECRET_KEY": "hjbhdsckjdchbhdkkajblslsad",
+    "MONGO_URI": "mongodb+srv://warish483:dummy15401540@atlascluster.fjcslfe.mongodb.net/mydb?retryWrites=true&w=majority",
+
+    "SMTP_HOST": "smtp.mailtrap.io",
+    "SMTP_PORT": 2525,
+    "SMTP_USER": "9bf6f5a5bcd59a",
+    "SMTP_PASS": "db86f2b649481b",
+
+    "CLOUDINARY_CLIENT_NAME": "dguxr8mtj",
+    "CLOUDINARY_API_KEY": "576172887762175",
+    "CLOUDINARY_API_SECRET": "1593gvtkIHHa1GOra-rcFJmuwjc",
+
+    "RAZORPAY_API_KEY": "rzp_test_2IegeKmqtKmjuc",
+    "RAZORPAY_API_SECRET": "o34QXTt068uUyvMHvel9Y4oH",
+    "SUBSCRIPTION_PLAN_ID": "plan_MV14VMeNnFevdE",
+    "REFUND_TIME": 7
+  }
+}
