@@ -16,6 +16,7 @@
     "RAZORPAY_API_KEY": "rzp_test_2IegeKmqtKmjuc",
     "RAZORPAY_API_SECRET": "o34QXTt068uUyvMHvel9Y4oH",
     "SUBSCRIPTION_PLAN_ID": "plan_MV14VMeNnFevdE",
-    "REFUND_TIME": 7
+    "REFUND_DAYS": 7,
+    "MY_MAIL": "warish.w20@iiits.in"
   }
 }

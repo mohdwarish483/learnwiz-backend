@@ -4,6 +4,8 @@ import ErrorHandler from "../utils/errorHandler.js";
 import { sendEmail } from "../utils/sendEmail.js";
 // import { Stats } from "../models/Stats.js";
 
+
+// contact handler
 export const contact = catchAsyncError(async (req, res, next) => {
   const { name, email, message } = req.body;
 
@@ -21,6 +23,8 @@ export const contact = catchAsyncError(async (req, res, next) => {
     message: "Your Mail Has Been Sent.",
   });
 });
+
+// course request handler
 
 export const courseRequest = catchAsyncError(async (req, res, next) => {
   const { name, email, course } = req.body;

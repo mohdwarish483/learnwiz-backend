@@ -1,7 +1,7 @@
 import express from "express";
 import { errorMiddleware } from "./middlewares/ErrorMiddleware.js";
 import cookieParser from "cookie-parser";
-
+import cors from "cors";
 // creates an express application
 
 const app = express();
@@ -14,7 +14,19 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+// using cross-origin resource sharing middleware
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://tiny-ruby-bear-sari.cyclic.cloud/api/v1",
+    ],
+  })
+);
+
 // importing and using routes
+
 import course from "./routes/CourseRoutes.js";
 app.use("/api/v1", course);
 
