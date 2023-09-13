@@ -22,6 +22,7 @@ app.use(
       "http://localhost:3000",
       "https://tiny-ruby-bear-sari.cyclic.cloud/api/v1",
     ],
+    credentials: true,
   })
 );
 
