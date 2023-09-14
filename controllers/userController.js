@@ -76,6 +76,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
     });
 });
 
+// get my profile or load user 
 export const getMyProfile = catchAsyncError(async (req, res, next) => {
   const user = await userCollection.findById(req.user._id);
 
