@@ -41,7 +41,7 @@ export const register = catchAsyncError(async (req, res, next) => {
   sendToken(res, user, "Registered Successfully", 201);
 });
 
-// login handler 
+// login handler
 export const login = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -66,7 +66,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
     .status(200)
     .cookie("token", null, {
       expires: new Date(Date.now()),
-      httpOnly: true,
+      httpOnly: true, // for preventing xss attack from client site javascript
       secure: true,
       sameSite: "none",
     })
@@ -76,7 +76,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
     });
 });
 
-// get my profile or load user 
+// get my profile or load user
 export const getMyProfile = catchAsyncError(async (req, res, next) => {
   const user = await userCollection.findById(req.user._id);
 
@@ -326,7 +326,9 @@ userCollection.watch().on("change", async () => {
     .find({})
     .sort({ createdAt: "desc" })
     .limit(1);
-  const subscription = await userCollection.find({ "subscription.status": "active" });
+  const subscription = await userCollection.find({
+    "subscription.status": "active",
+  });
   stats[0].users = await userCollection.countDocuments();
   stats[0].subscription = subscription.length;
   stats[0].createdAt = new Date(Date.now());
