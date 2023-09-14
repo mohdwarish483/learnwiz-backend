@@ -60,6 +60,7 @@ export const login = catchAsyncError(async (req, res, next) => {
   sendToken(res, user, `Welcome back, ${user.name}`, 200);
 });
 
+// logout handler
 export const logout = catchAsyncError(async (req, res, next) => {
   res
     .status(200)
