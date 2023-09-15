@@ -26,6 +26,15 @@ app.use(
   })
 );
 
+// Middleware to handle CORS preflight requests
+app.options("/api/v1/login", (req, res) => {
+  // Set CORS headers
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.sendStatus(200);
+});
+
 // importing and using routes
 
 import course from "./routes/CourseRoutes.js";
