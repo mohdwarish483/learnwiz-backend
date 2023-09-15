@@ -65,7 +65,7 @@ export const logout = catchAsyncError(async (req, res, next) => {
   res
     .status(200)
     .cookie("token", null, {
-      expires: new Date(Date.now()),
+      maxAge: 0,
       httpOnly: true, // for preventing xss attack from client site javascript
       secure: true,
       sameSite: "none",
