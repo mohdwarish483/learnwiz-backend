@@ -20,6 +20,9 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:3002",
+      "http://localhost:3003",
       "https://tiny-ruby-bear-sari.cyclic.cloud/api/v1",
     ],
     credentials: true,
@@ -29,7 +32,13 @@ app.use(
 // Middleware to handle CORS preflight requests
 app.options("/api/v1/login", (req, res) => {
   // Set CORS headers
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
+    "http://localhost:3003"
+  );
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.sendStatus(200);

@@ -8,6 +8,7 @@
     "SMTP_PORT": 2525,
     "SMTP_USER": "9bf6f5a5bcd59a",
     "SMTP_PASS": "db86f2b649481b",
+    "FRONTEND_URL": "http://localhost:3000",
 
     "CLOUDINARY_CLIENT_NAME": "dguxr8mtj",
     "CLOUDINARY_API_KEY": "576172887762175",

@@ -12,7 +12,7 @@ export const getAllCourses = catchAsyncError(async (req, res, next) => {
   const keyword = req.query.keyword || "";
   const category = req.query.category || "";
 
-  const course = await courseCollection
+  const courses = await courseCollection
     .find({
       title: {
         $regex: keyword,
@@ -26,7 +26,7 @@ export const getAllCourses = catchAsyncError(async (req, res, next) => {
     .select("-lectures");
   res.status(200).json({
     success: true,
-    course,
+    courses,
   });
 });
 
