@@ -24,6 +24,7 @@ app.use(
       "http://localhost:3002",
       "http://localhost:3003",
       "https://tiny-ruby-bear-sari.cyclic.cloud/api/v1",
+      "https://learnwiz.netlify.app/",
     ],
     credentials: true,
   })
@@ -37,7 +38,8 @@ app.options("/api/v1/login", (req, res) => {
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",
-    "http://localhost:3003"
+    "http://localhost:3003",
+    "https://learnwiz.netlify.app"
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
