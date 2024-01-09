@@ -39,7 +39,7 @@ app.options("/api/v1/login", (req, res) => {
     "http://localhost:3001",
     "http://localhost:3002",
     "http://localhost:3003",
-    "https://learnwiz.netlify.app"
+    "https://learnwiz.netlify.app/"
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
