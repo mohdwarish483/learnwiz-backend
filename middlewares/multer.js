@@ -1,7 +1,7 @@
-import multer from "multer";
+import multer from "multer"; // for processing files locally or storing files locally
 
 const storage = multer.memoryStorage();
 
-const singleUpload = multer({ storage }).single("file");
+const singleUpload = multer({ storage }).single("file"); 
 
 export default singleUpload;

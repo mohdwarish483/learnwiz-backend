@@ -20,7 +20,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your password"],
     minLength: [6, "Password must be at least 6 characters"],
-    select: false,
+    select: false, // to exclude the password field in the query result
   },
   role: {
     type: String,
@@ -48,7 +48,7 @@ const schema = new mongoose.Schema({
     {
       course: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
+        ref: "courseCollection",
       },
       poster: String,
     },
@@ -87,7 +87,7 @@ schema.methods.getResetToken = function () {
     .update(resetToken)
     .digest("hex");
 
-  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
+  this.resetPasswordExpire = Date.now() + 15 * 24 * 60 * 60 * 1000;
 
   return resetToken;
 };

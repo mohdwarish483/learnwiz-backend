@@ -8,9 +8,9 @@ export const isAuthenticated = catchAsyncError(async (req, res, next) => {
 
   if (!token) return next(new ErrorHandler("Not Logged In", 401));
 
-  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY); // decoded token payload , which includes user_id passed at the time of creation , expirty and date of creation
 
-  req.user = await userCollection.findById(decoded._id);
+  req.user = await userCollection.findById(decoded?._id); // update request user before going to the actual controller
 
   next();
 });
