@@ -16,7 +16,7 @@ router.route("/subscribe/cancel").get(isAuthenticated, cancelSubscription);
 
 // payment verification
 
-router.route("/paymentverification").get(isAuthenticated, paymentVerification);
+router.route("/paymentverification").post(isAuthenticated, paymentVerification);
 // get razorpay api key
 
 router.route("/razorpaykey").get(isAuthenticated, getRazorpaykey);

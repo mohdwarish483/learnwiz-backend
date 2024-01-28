@@ -25,7 +25,7 @@ NodeCron.schedule("0 0 0 1 * *", async () => {
   try {
     await statsCollection.create({});
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 

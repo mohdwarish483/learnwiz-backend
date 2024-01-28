@@ -6,6 +6,9 @@ import { catchAsyncError } from "./catchTryMIddleware.js";
 export const isAuthenticated = catchAsyncError(async (req, res, next) => {
   const { token } = req.cookies;
 
+  // console.log("\n calling req inthe authenticated", req.cookies);
+  // console.log("\n calling req token", token);
+
   if (!token) return next(new ErrorHandler("Not Logged In", 401));
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY); // decoded token payload , which includes user_id passed at the time of creation , expirty and date of creation

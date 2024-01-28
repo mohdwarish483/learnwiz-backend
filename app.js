@@ -14,7 +14,7 @@ app.use(
 );
 app.use(cookieParser());
 
-// Specify the origin of your frontend applications
+// origin of frontend applications
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
@@ -23,7 +23,7 @@ const allowedOrigins = [
   "https://learnwiz.netlify.app",
 ];
 
-// using cross-origin resource sharing middleware
+// using cross-origin resource sharing middleware to allow origin request
 app.use(
   cors({
     origin: allowedOrigins,
@@ -33,7 +33,7 @@ app.use(
 
 // Middleware to handle CORS preflight requests
 app.options("/api/v1/login", (req, res) => {
-  // Set CORS headers
+  // Setting CORS headers
   res.header("Access-Control-Allow-Origin", allowedOrigins.join(","));
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");

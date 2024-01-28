@@ -4,11 +4,16 @@ import { userCollection } from "../models/UserModel.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import { paymentCollection } from "../models/PaymentModel.js";
 
+import crypto from "crypto";
 // buy subscription plan
 
 export const buySubscription = catchAsyncError(async (req, res, next) => {
   const user = await userCollection.findById(req.user._id);
 
+  // console.log(
+  //   "buy wsubscription called in the buysubscription controller",
+  //   user
+  // );
   if (user.role === "admin")
     return next(new ErrorHandler("Admin can't buy subscription", 400));
 
@@ -24,6 +29,7 @@ export const buySubscription = catchAsyncError(async (req, res, next) => {
 
   user.subscription.status = subscription.status;
 
+  // console.log("calling subscription to buysubscription", subscription);
   await user.save();
 
   res.status(201).json({
@@ -38,6 +44,7 @@ export const paymentVerification = catchAsyncError(async (req, res, next) => {
   const { razorpay_signature, razorpay_payment_id, razorpay_subscription_id } =
     req.body;
 
+  // console.log("calling verification request body", req?.body);
   // user is a document of user collection
 
   const user = await userCollection.findById(req.user._id);
@@ -81,6 +88,7 @@ export const paymentVerification = catchAsyncError(async (req, res, next) => {
 export const getRazorpaykey = catchAsyncError(async (req, res, next) => {
   const razorpay_api_key = process.env.RAZORPAY_API_KEY;
 
+  // console.log("calling getrazorpay key", razorpay_api_key);
   res.status(200).json({
     success: "true",
     key: razorpay_api_key,
@@ -122,6 +130,6 @@ export const cancelSubscription = catchAsyncError(async (req, res, next) => {
     message: refund
       ? "Subscription cancelled, You will receive full refund within 7 days."
       : "Subscription cancelled, But refund is not accepted as subscription was cancelled after 7 days." +
-        `${process.env.FRONTEND_URL}\termsandcondition`,
+        `${process.env.FRONTEND_URL}/termsandcondition`,
   });
 });
